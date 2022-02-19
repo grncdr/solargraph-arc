@@ -28,6 +28,8 @@ module Solargraph
         end
 
         walker.on :send, [nil, :scope] do |ast|
+          return unless ast.children[2]
+
           name = ast.children[2].children.last
 
           method_pin = Util.build_public_method(
