@@ -65,7 +65,7 @@ module Solargraph
       # TODO: support custom table names, by parsing `self.table_name = ` invokations
       # inside model
       def infer_table_name(ns)
-        ns.name.underscore.pluralize
+        ns.name.tableize.gsub('/', '_')
       end
 
       def extract_schema(ast)
